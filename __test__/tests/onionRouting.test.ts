@@ -415,291 +415,291 @@ describe("Onion Routing", () => {
     });
   });
 
-  // describe("Creating all cryptographic functions - 4pt", () => {
-  //   it("Can generate RSA key pair - 0.5pt", async () => {
-  //     const { publicKey, privateKey } = await generateRsaKeyPair();
+  describe("Creating all cryptographic functions - 4pt", () => {
+    it("Can generate RSA key pair - 0.5pt", async () => {
+      const { publicKey, privateKey } = await generateRsaKeyPair();
 
-  //     expect(publicKey).toBeTruthy();
+      expect(publicKey).toBeTruthy();
 
-  //     expect(publicKey.algorithm.name).toBe("RSA-OAEP");
-  //     expect(privateKey.algorithm.name).toBe("RSA-OAEP");
+      expect(publicKey.algorithm.name).toBe("RSA-OAEP");
+      expect(privateKey.algorithm.name).toBe("RSA-OAEP");
 
-  //     expect(publicKey.extractable).toBe(true);
-  //     expect(privateKey.extractable).toBe(true);
+      expect(publicKey.extractable).toBe(true);
+      expect(privateKey.extractable).toBe(true);
 
-  //     expect(publicKey.type).toBe("public");
-  //     expect(privateKey.type).toBe("private");
-  //   });
+      expect(publicKey.type).toBe("public");
+      expect(privateKey.type).toBe("private");
+    });
 
-  //   it("Can export and import a public key - 0.25pt", async () => {
-  //     const { publicKey } = await generateRsaKeyPair();
+    it("Can export and import a public key - 0.25pt", async () => {
+      const { publicKey } = await generateRsaKeyPair();
 
-  //     const strPubKey = await exportPubKey(publicKey);
+      const strPubKey = await exportPubKey(publicKey);
 
-  //     const _publicKey = await importPubKey(strPubKey);
+      const _publicKey = await importPubKey(strPubKey);
 
-  //     const _strPubKey = await exportPubKey(_publicKey);
+      const _strPubKey = await exportPubKey(_publicKey);
 
-  //     expect(strPubKey).toBe(_strPubKey);
-  //     expect(strPubKey).not.toBe("");
-  //   });
+      expect(strPubKey).toBe(_strPubKey);
+      expect(strPubKey).not.toBe("");
+    });
 
-  //   it("Can export and import a private key - 0.25pt", async () => {
-  //     const { privateKey } = await generateRsaKeyPair();
+    it("Can export and import a private key - 0.25pt", async () => {
+      const { privateKey } = await generateRsaKeyPair();
 
-  //     const strPrvKey = await exportPrvKey(privateKey);
+      const strPrvKey = await exportPrvKey(privateKey);
 
-  //     if (strPrvKey === null) throw new Error("strPrvKey is null");
+      if (strPrvKey === null) throw new Error("strPrvKey is null");
 
-  //     const _privateKey = await importPrvKey(strPrvKey);
+      const _privateKey = await importPrvKey(strPrvKey);
 
-  //     const _strPrvKey = await exportPrvKey(_privateKey);
+      const _strPrvKey = await exportPrvKey(_privateKey);
 
-  //     expect(strPrvKey).toBe(_strPrvKey);
-  //     expect(strPrvKey).not.toBe("");
-  //   });
+      expect(strPrvKey).toBe(_strPrvKey);
+      expect(strPrvKey).not.toBe("");
+    });
 
-  //   it("Can rsa encrypt and decrypt - 0pt", async () => {
-  //     const { publicKey, privateKey } = await generateRsaKeyPair();
+    it("Can rsa encrypt and decrypt - 0pt", async () => {
+      const { publicKey, privateKey } = await generateRsaKeyPair();
 
-  //     const b64Message = btoa("Hello World!!");
+      const b64Message = btoa("Hello World!!");
 
-  //     const encrypted = await rsaEncrypt(
-  //       b64Message,
-  //       await exportPubKey(publicKey)
-  //     );
-  //     const decrypted = await rsaDecrypt(encrypted, privateKey);
+      const encrypted = await rsaEncrypt(
+        b64Message,
+        await exportPubKey(publicKey)
+      );
+      const decrypted = await rsaDecrypt(encrypted, privateKey);
 
-  //     // verify that the retrieved private key corresponds to the public key in the registry
-  //     expect(decrypted).toBe(b64Message);
-  //   });
+      // verify that the retrieved private key corresponds to the public key in the registry
+      expect(decrypted).toBe(b64Message);
+    });
 
-  //   test.todo("Hidden test - Can rsa encrypt and decrypt - 1pt");
+    test.todo("Hidden test - Can rsa encrypt and decrypt - 1pt");
 
-  //   it("Can generate symmetric key - 0.5 pt", async () => {
-  //     const symKey = await createRandomSymmetricKey();
+    it("Can generate symmetric key - 0.5 pt", async () => {
+      const symKey = await createRandomSymmetricKey();
 
-  //     expect(symKey).toBeTruthy();
+      expect(symKey).toBeTruthy();
 
-  //     expect(symKey.algorithm.name).toBe("AES-CBC");
+      expect(symKey.algorithm.name).toBe("AES-CBC");
 
-  //     expect(symKey.extractable).toBe(true);
+      expect(symKey.extractable).toBe(true);
 
-  //     expect(symKey.type).toBe("secret");
-  //   });
+      expect(symKey.type).toBe("secret");
+    });
 
-  //   it("Can export and import a symmetric key - 0.5pt", async () => {
-  //     const symKey = await createRandomSymmetricKey();
+    it("Can export and import a symmetric key - 0.5pt", async () => {
+      const symKey = await createRandomSymmetricKey();
 
-  //     const strSymKey = await exportSymKey(symKey);
+      const strSymKey = await exportSymKey(symKey);
 
-  //     const _symKey = await importSymKey(strSymKey);
+      const _symKey = await importSymKey(strSymKey);
 
-  //     const _strSymKey = await exportSymKey(_symKey);
+      const _strSymKey = await exportSymKey(_symKey);
 
-  //     expect(strSymKey).toBe(_strSymKey);
-  //     expect(strSymKey).not.toBe("");
-  //   });
+      expect(strSymKey).toBe(_strSymKey);
+      expect(strSymKey).not.toBe("");
+    });
 
-  //   it("Can symmetrically encrypt and decrypt - 0pt", async () => {
-  //     const symKey = await createRandomSymmetricKey();
+    it("Can symmetrically encrypt and decrypt - 0pt", async () => {
+      const symKey = await createRandomSymmetricKey();
 
-  //     const b64Message = btoa("HelloWorld");
+      const b64Message = btoa("HelloWorld");
 
-  //     const encrypted = await symEncrypt(symKey, b64Message);
+      const encrypted = await symEncrypt(symKey, b64Message);
 
-  //     const decrypted = await symDecrypt(await exportSymKey(symKey), encrypted);
+      const decrypted = await symDecrypt(await exportSymKey(symKey), encrypted);
 
-  //     // verify that the retrieved private key corresponds to the public key in the registry
-  //     expect(decrypted).toBe(b64Message);
-  //   });
+      // verify that the retrieved private key corresponds to the public key in the registry
+      expect(decrypted).toBe(b64Message);
+    });
 
-  //   test.todo("Hidden test - Can symmetrically encrypt and decrypt - 1pt");
-  // });
+    test.todo("Hidden test - Can symmetrically encrypt and decrypt - 1pt");
+  });
 
-  // describe("Can forward messages through the network - 10 pt", () => {
-  //   const servers: http.Server[] = [];
+  describe("Can forward messages through the network - 10 pt", () => {
+    const servers: http.Server[] = [];
 
-  //   beforeAll(async () => {
-  //     const _servers = await launchNetwork(10, 2);
-  //     servers.push(..._servers);
-  //   });
-
-  //   afterAll(async () => {
-  //     await closeAllServers(servers);
-  //   });
-
-  //   it("User 0 can say Hello World! to user 1 - 4 pt", async () => {
-  //     await sendMessage(BASE_USER_PORT + 0, "Hello World!", 1);
-
-  //     const receivedMessage = await getLastReceivedMessage(BASE_USER_PORT + 1);
-
-  //     expect(receivedMessage).toBe("Hello World!");
-
-  //     const lastSentMessage = await getLastSentMessage(BASE_USER_PORT + 0);
-
-  //     expect(lastSentMessage).toBe("Hello World!");
-  //   });
-
-  //   it("The circuit from 0 to 1 is respected - 1 pt", async () => {
-  //     const callNumbers = new Array(10).fill(0);
-
-  //     // This will be increased when grading exercises
-  //     for (let index = 0; index < 150; index++) {
-  //       await sendMessage(BASE_USER_PORT + 0, "Hello World", 1);
-
-  //       const circuit = await getLastCircuit(BASE_USER_PORT + 0);
-
-  //       expect(circuit).not.toBeUndefined();
-  //       // circuit has 3 nodes
-  //       expect(circuit.length).toBe(3);
-  //       // nodes are unique
-  //       expect(new Set(circuit).size).toBe(3);
-  //       for (let index = 0; index < circuit.length; index++) {
-  //         callNumbers[circuit[index]] += 1;
-  //         expect(typeof circuit[index]).toBe("number");
-  //       }
-  //       // all nodes exist
-  //       expect(Math.max(...circuit)).toBeLessThanOrEqual(9);
-  //       expect(Math.min(...circuit)).toBeGreaterThanOrEqual(0);
-  //     }
-
-  //     const sum = callNumbers.reduce((acc, val) => acc + val, 0);
-  //     const frequencies = callNumbers.map((val) => val / sum);
-
-  //     // each node has more or less 10% occurence
-  //     for (let index = 0; index < frequencies.length; index++) {
-  //       const freq = frequencies[index];
-
-  //       expect(freq).toBeGreaterThanOrEqual(0.05);
-  //       expect(freq).toBeLessThanOrEqual(0.15);
-  //     }
-  //   });
-
-  //   it("Each node in the circuit forwarded the message to the right node - 2pt", async () => {
-  //     await sendMessage(BASE_USER_PORT + 0, "Hello world", 1);
-
-  //     const circuit = await getLastCircuit(BASE_USER_PORT + 0);
-
-  //     let lastDecrypted;
-
-  //     for (let index = 0; index < circuit.length - 1; index++) {
-  //       const nextDestination = await getLastMessageDestination(
-  //         BASE_ONION_ROUTER_PORT + circuit[index]
-  //       );
-
-  //       const actualNextDestination =
-  //         BASE_ONION_ROUTER_PORT + circuit[index + 1];
-  //       expect(nextDestination).toBe(actualNextDestination);
-
-  //       const lastReceivedEncryptedMessage =
-  //         await getLastReceivedEncryptedMessage(
-  //           BASE_ONION_ROUTER_PORT + circuit[index]
-  //         );
-
-  //       if (lastDecrypted) {
-  //         expect(lastReceivedEncryptedMessage).toBe(lastDecrypted);
-  //       }
-
-  //       expect(
-  //         lastReceivedEncryptedMessage !== null &&
-  //           /^[A-Za-z0-9+/=]*$/.test(lastReceivedEncryptedMessage)
-  //       ).toBeTruthy();
-
-  //       const lastReceivedDecryptedMessage =
-  //         await getLastReceivedDecryptedMessage(
-  //           BASE_ONION_ROUTER_PORT + circuit[index]
-  //         );
-
-  //       lastDecrypted = lastReceivedDecryptedMessage;
-
-  //       expect(
-  //         lastReceivedDecryptedMessage !== null &&
-  //           /^[A-Za-z0-9+/=]*$/.test(lastReceivedDecryptedMessage)
-  //       ).toBeTruthy();
-  //     }
-
-  //     // last node
-  //     {
-  //       const lastDestination = await getLastMessageDestination(
-  //         BASE_ONION_ROUTER_PORT + circuit[circuit.length - 1]
-  //       );
-  //       const actualLastDestination = BASE_USER_PORT + 1;
-  //       expect(lastDestination).toBe(actualLastDestination);
-
-  //       const lastReceivedEncryptedMessage =
-  //         await getLastReceivedEncryptedMessage(
-  //           BASE_ONION_ROUTER_PORT + circuit[circuit.length - 1]
-  //         );
-
-  //       expect(
-  //         lastReceivedEncryptedMessage !== null &&
-  //           /^[A-Za-z0-9+/=]*$/.test(lastReceivedEncryptedMessage)
-  //       ).toBeTruthy();
-
-  //       const lastReceivedDecryptedMessage =
-  //         await getLastReceivedDecryptedMessage(
-  //           BASE_ONION_ROUTER_PORT + circuit[circuit.length - 1]
-  //         );
-  //       expect(lastReceivedDecryptedMessage).toBe("Hello world");
-  //     }
-
-  //     const receivedMessage = await getLastReceivedMessage(BASE_USER_PORT + 1);
-
-  //     expect(receivedMessage).toBe("Hello world");
-  //   });
-
-  //   it("The right message is passed to each node - 1pt", async () => {
-  //     await sendMessage(
-  //       BASE_USER_PORT + 0,
-  //       "We are finally testing the whole decentralised network !",
-  //       1
-  //     );
-
-  //     const circuit = await getLastCircuit(BASE_USER_PORT + 0);
-
-  //     for (let index = 0; index < circuit.length - 1; index++) {
-  //       const lastReceivedEncryptedMessage =
-  //         await getLastReceivedEncryptedMessage(
-  //           BASE_ONION_ROUTER_PORT + circuit[index]
-  //         );
-
-  //       const lastReceivedDecryptedMessage =
-  //         await getLastReceivedDecryptedMessage(
-  //           BASE_ONION_ROUTER_PORT + circuit[index]
-  //         );
-
-  //       const privateKey = await getPrivateKey(
-  //         BASE_ONION_ROUTER_PORT + circuit[index]
-  //       );
-
-  //       const isValid = await validateEncryption(
-  //         lastReceivedEncryptedMessage,
-  //         lastReceivedDecryptedMessage,
-  //         privateKey
-  //       );
-
-  //       expect(isValid).toBeTruthy();
-  //     }
-  //   });
-
-  //   test.todo("Hidden test - the right message is passed to each node - 2pt");
-  // });
-
-  // describe("Hidden tests - 2 pt", () => {
-  //   const servers: http.Server[] = [];
-
-  //   beforeAll(async () => {
-  //     const _servers = await launchNetwork(10, 2);
-  //     servers.push(..._servers);
-  //   });
-
-  //   afterAll(async () => {
-  //     await closeAllServers(servers);
-  //   });
-
-  //   test.todo("Hidden test - Can send an empty message - 1pt");
-
-  //   test.todo("Hidden test - Edge case #2 - 1pt");
-  // });
+    beforeAll(async () => {
+      const _servers = await launchNetwork(10, 2);
+      servers.push(..._servers);
+    });
+
+    afterAll(async () => {
+      await closeAllServers(servers);
+    });
+
+    it("User 0 can say Hello World! to user 1 - 4 pt", async () => {
+      await sendMessage(BASE_USER_PORT + 0, "Hello World!", 1);
+
+      const receivedMessage = await getLastReceivedMessage(BASE_USER_PORT + 1);
+
+      expect(receivedMessage).toBe("Hello World!");
+
+      const lastSentMessage = await getLastSentMessage(BASE_USER_PORT + 0);
+
+      expect(lastSentMessage).toBe("Hello World!");
+    });
+
+    it("The circuit from 0 to 1 is respected - 1 pt", async () => {
+      const callNumbers = new Array(10).fill(0);
+
+      // This will be increased when grading exercises
+      for (let index = 0; index < 150; index++) {
+        await sendMessage(BASE_USER_PORT + 0, "Hello World", 1);
+
+        const circuit = await getLastCircuit(BASE_USER_PORT + 0);
+
+        expect(circuit).not.toBeUndefined();
+        // circuit has 3 nodes
+        expect(circuit.length).toBe(3);
+        // nodes are unique
+        expect(new Set(circuit).size).toBe(3);
+        for (let index = 0; index < circuit.length; index++) {
+          callNumbers[circuit[index]] += 1;
+          expect(typeof circuit[index]).toBe("number");
+        }
+        // all nodes exist
+        expect(Math.max(...circuit)).toBeLessThanOrEqual(9);
+        expect(Math.min(...circuit)).toBeGreaterThanOrEqual(0);
+      }
+
+      const sum = callNumbers.reduce((acc, val) => acc + val, 0);
+      const frequencies = callNumbers.map((val) => val / sum);
+
+      // each node has more or less 10% occurence
+      for (let index = 0; index < frequencies.length; index++) {
+        const freq = frequencies[index];
+
+        expect(freq).toBeGreaterThanOrEqual(0.05);
+        expect(freq).toBeLessThanOrEqual(0.15);
+      }
+    });
+
+    it("Each node in the circuit forwarded the message to the right node - 2pt", async () => {
+      await sendMessage(BASE_USER_PORT + 0, "Hello world", 1);
+
+      const circuit = await getLastCircuit(BASE_USER_PORT + 0);
+
+      let lastDecrypted;
+
+      for (let index = 0; index < circuit.length - 1; index++) {
+        const nextDestination = await getLastMessageDestination(
+          BASE_ONION_ROUTER_PORT + circuit[index]
+        );
+
+        const actualNextDestination =
+          BASE_ONION_ROUTER_PORT + circuit[index + 1];
+        expect(nextDestination).toBe(actualNextDestination);
+
+        const lastReceivedEncryptedMessage =
+          await getLastReceivedEncryptedMessage(
+            BASE_ONION_ROUTER_PORT + circuit[index]
+          );
+
+        if (lastDecrypted) {
+          expect(lastReceivedEncryptedMessage).toBe(lastDecrypted);
+        }
+
+        expect(
+          lastReceivedEncryptedMessage !== null &&
+            /^[A-Za-z0-9+/=]*$/.test(lastReceivedEncryptedMessage)
+        ).toBeTruthy();
+
+        const lastReceivedDecryptedMessage =
+          await getLastReceivedDecryptedMessage(
+            BASE_ONION_ROUTER_PORT + circuit[index]
+          );
+
+        lastDecrypted = lastReceivedDecryptedMessage;
+
+        expect(
+          lastReceivedDecryptedMessage !== null &&
+            /^[A-Za-z0-9+/=]*$/.test(lastReceivedDecryptedMessage)
+        ).toBeTruthy();
+      }
+
+      // last node
+      {
+        const lastDestination = await getLastMessageDestination(
+          BASE_ONION_ROUTER_PORT + circuit[circuit.length - 1]
+        );
+        const actualLastDestination = BASE_USER_PORT + 1;
+        expect(lastDestination).toBe(actualLastDestination);
+
+        const lastReceivedEncryptedMessage =
+          await getLastReceivedEncryptedMessage(
+            BASE_ONION_ROUTER_PORT + circuit[circuit.length - 1]
+          );
+
+        expect(
+          lastReceivedEncryptedMessage !== null &&
+            /^[A-Za-z0-9+/=]*$/.test(lastReceivedEncryptedMessage)
+        ).toBeTruthy();
+
+        const lastReceivedDecryptedMessage =
+          await getLastReceivedDecryptedMessage(
+            BASE_ONION_ROUTER_PORT + circuit[circuit.length - 1]
+          );
+        expect(lastReceivedDecryptedMessage).toBe("Hello world");
+      }
+
+      const receivedMessage = await getLastReceivedMessage(BASE_USER_PORT + 1);
+
+      expect(receivedMessage).toBe("Hello world");
+    });
+
+    it("The right message is passed to each node - 1pt", async () => {
+      await sendMessage(
+        BASE_USER_PORT + 0,
+        "We are finally testing the whole decentralised network !",
+        1
+      );
+
+      const circuit = await getLastCircuit(BASE_USER_PORT + 0);
+
+      for (let index = 0; index < circuit.length - 1; index++) {
+        const lastReceivedEncryptedMessage =
+          await getLastReceivedEncryptedMessage(
+            BASE_ONION_ROUTER_PORT + circuit[index]
+          );
+
+        const lastReceivedDecryptedMessage =
+          await getLastReceivedDecryptedMessage(
+            BASE_ONION_ROUTER_PORT + circuit[index]
+          );
+
+        const privateKey = await getPrivateKey(
+          BASE_ONION_ROUTER_PORT + circuit[index]
+        );
+
+        const isValid = await validateEncryption(
+          lastReceivedEncryptedMessage,
+          lastReceivedDecryptedMessage,
+          privateKey
+        );
+
+        expect(isValid).toBeTruthy();
+      }
+    });
+
+    test.todo("Hidden test - the right message is passed to each node - 2pt");
+  });
+
+  describe("Hidden tests - 2 pt", () => {
+    const servers: http.Server[] = [];
+
+    beforeAll(async () => {
+      const _servers = await launchNetwork(10, 2);
+      servers.push(..._servers);
+    });
+
+    afterAll(async () => {
+      await closeAllServers(servers);
+    });
+
+    test.todo("Hidden test - Can send an empty message - 1pt");
+
+    test.todo("Hidden test - Edge case #2 - 1pt");
+  });
 });
